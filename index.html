@@ -9,30 +9,33 @@
 </head>
 <body>
     <div class="head" >
+        <button class="btn1" id="js_btn1"><</button>
         <h1 class="todayDate" id="js_todayDate"></h1>
+        <button class="btn2" id="js_btn2">></button>
     </div>
-    <section class="section">
-
-        <table class="calendar" id="js_calendar">
-            <th>일</th>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-            <th>토</th>
-        </table>
 
 
-        <div class="aside" id="js_aside">
-            <ul class="toDoList" id="js_toDoList">
+
+    <table class="calendar" id="js_calendar">
+        <th id="sunday">일</th>
+        <th>월</th>
+        <th>화</th>
+        <th>수</th>
+        <th>목</th>
+        <th>금</th>
+        <th id="saturday">토</th>
+    </table>
+
+    
+    <div class="aside" id="js_aside">
+        <ul class="toDoList" id="js_toDoList">
                 
-            </ul>
-            <form class="schedule" >
-                <input type="text" class="schedules" id="js_schedules"></input>
-            </form>
-        </div>
-    </section>
+        </ul>
+        <form class="schedule" >
+            <input type="text" class="schedules" id="js_schedules"></input>
+        </form>
+    </div>
+
 
     <script src="calendar.js"></script>
 </body>

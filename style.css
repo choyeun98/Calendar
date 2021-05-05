@@ -16,36 +16,46 @@ body{
 .todayDate{
     position: absolute;
     top: 50px;
-    left: 500px;
+    left: 450px;
     font-size: 70px;
     
 }
 
-.section{
+.head button{
     display: flex;
-    position:absolute;
-    top:55%;
-    left:50%;
-    transform: translate(-50%, -50%);
+    all: unset;
+    position: relative;
+    top: 43px;
+    left: 405px;
+    width: 400px;
+    font-size: 30px;
+    cursor: pointer;
 }
 
+.head button:active{
+    transform: scale(0.99);
+}
 
 .calendar{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-75%, -40%);
     width: 800px;
     height: 700px;
     text-align: center;
     font-size: 30px;
     color: rgba(0, 0, 0, 0.60);
-
 }
 
 .calendar th{
-    text-align: center;
-    font-size: 20px;
+    font-size: 23px;
     color: rgba(0, 0, 0, 0.70);
 }
 
+
 .calendar tbody tr td:hover{
+    border-radius: 35px;
     background-color: rgba(255, 244, 93, 0.216);
 }
 
@@ -56,17 +66,26 @@ body{
 }
 
 .aside{
-    display: none;
+    position: absolute;
+    top: 49%;
+    left: 70%;
+    transform: translate(-50%, -45%);
     flex-direction: column;
+
 }
 
 .toDoList{
     width: 300px;
-    height: 600px;
+    height: 530px;
     border: 1px solid black;
+    border-radius: 20px;
     margin-bottom: 20px;
 }
 
-.showing{
-    display: block;
+#sunday{
+    color: #eb4d4b;
+}
+
+#saturday{
+    color: #0984e3;
 }
