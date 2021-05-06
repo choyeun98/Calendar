@@ -5,7 +5,8 @@ const afterBtn = document.getElementById('js_btn2');
 
 
 
-const today = new Date();
+
+let today = new Date();
 let year = today.getFullYear();
 let month = today.getMonth();
 let date = today.getDate();
@@ -15,11 +16,36 @@ let last_date = new Date(year, month + 1, 0).getDate();
 
 
 
+const PAINT_TODAY = 'paintToday'; 
+const BIRTHDAY = 'bD';
 
+
+//내 생일 띄우기(실행안됨)
+/*
+function birthDay(){
+    YMD = [year, 5, 17];
+    everyBD = document.getElementById(YMD);
+    everyBD.classList.add(BIRTHDAY);
+        
+    
+}*/
+
+
+//오늘 날짜 색칠되게 하기(실행은 되는데 다른달로 넘어갓다 오면 실행이 안됨)
+function paintToday(){
+    for(i = 1; i <= last_date; i++ ){
+        const paintTodayDate = new Date(year, month, date).getDate();
+        YMD = [year, month, date];
+        if(paintTodayDate === i){
+            todayId = document.getElementById(YMD);
+            todayId.classList.add(PAINT_TODAY);
+        }
+    }
+}
 
 
 function yearNMonth(){
-    todayDate.innerText = `${year}년 ${month+1}월` 
+    todayDate.innerText = `${year}. ${month+1}` 
 }
 
 
@@ -31,13 +57,14 @@ function deleteTable(){
 }
 
 
+//이전달로 가는 버튼을 눌렀을 때
 function beforeMonth(){
     month = month - 1;
     if(month === -1 ){
         year = year - 1; 
         month = month + 12;
     }
-    todayDate.innerText = `${year}년 ${month + 1}월`;
+    todayDate.innerText = `${year}. ${month + 1}`;
     last_date = new Date(year, month + 1, 0).getDate();
     first_day = new Date(year, month, 1).getDay();
     deleteTable(); //이전의 날짜가 있는 행 삭제를 위함
@@ -45,13 +72,14 @@ function beforeMonth(){
 }
 
 
+//이후달로 가는 버튼을 눌렀을 때
 function afterMonth(){
     month = month + 1;
     if(month === 12){
         year = year + 1;
         month = month - 12;
     }
-    todayDate.innerText = `${year}년 ${month + 1}월`;
+    todayDate.innerText = `${year}. ${month + 1}`;
     last_date = new Date(year, month + 1, 0).getDate();
     first_day = new Date(year, month, 1).getDay();
     deleteTable();
@@ -70,19 +98,23 @@ function paintCalendar(){
 
     for(i = 1; i <= last_date; i++ ){
         const dayOfDate = new Date(year, month, i).getDay();
+        let YMD = [year, month, i];
         if(dayOfDate === 6){
             cell = row.insertCell();
             row = table.insertRow();
             cell.innerText = [i];
-            cell.setAttribute('id', i);
+            cell.setAttribute('id', YMD);
         }
         else{
             cell = row.insertCell();
             cell.innerText = [i];
-            cell.setAttribute('id', i);
+            cell.setAttribute('id', YMD);
         }
     }
 }
+
+
+
 
 
 
@@ -92,7 +124,10 @@ function init(){
     yearNMonth();
     beforeBtn.addEventListener("click", beforeMonth);
     afterBtn.addEventListener("click", afterMonth);
-    
+}
+
+window.onload = function(){
+    paintToday();
 }
 
 
