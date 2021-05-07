@@ -8,6 +8,7 @@ const toDoList = document.getElementById('js_toDoList');
 const LS_TODOS = 'toDos';
 let toDos = [];
 
+const BUTTON = 'designBtn'
 
 
 function loadedToDos(){
@@ -41,8 +42,9 @@ function handleDelete(event){
 function printToDo(answer){
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
+    delBtn.classList.add(BUTTON);
     const objId = toDos.length + 1;
-    delBtn.innerText = "☆";
+    delBtn.innerText = "❌";
     delBtn.addEventListener("click", handleDelete);
     li.innerText = answer;
     li.appendChild(delBtn);
