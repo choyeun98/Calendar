@@ -20,18 +20,26 @@ const PAINT_TODAY = 'paintToday';
 const BIRTHDAY = 'bD';
 
 
-//내 생일 띄우기(실행안됨)
-/*
+
+
+/*내 생일 띄우기(실행안됨)
+
 function birthDay(){
-    YMD = [year, 5, 17];
-    everyBD = document.getElementById(YMD);
-    everyBD.classList.add(BIRTHDAY);
+    for(i = 2021; 2019 <= i <= 2022; i++ ){
+        b_dayYMD = new Date(i, 5, 17);
+        b_dayYear = b_dayYMD.getFullYear();
+        b_dayMonth = b_dayYMD.getMonth();
+        b_dayDate = b_dayYMD.getDate();
+        YMD = [b_dayYear, b_dayMonth, b_dayDate];
+        const b_day = document.getElementById(YMD);
+        console.dir(b_day);
+        b_day.classList.add(BIRTHDAY);
         
-    
+    }
 }*/
 
 
-//오늘 날짜 색칠되게 하기(실행은 되는데 다른달로 넘어갓다 오면 실행이 안됨)
+//오늘 날짜 색칠되게 하기(처음에는 실행 되는데 다른달로 넘어갓다 오면 실행이 안됨 #해결못함
 function paintToday(){
     for(i = 1; i <= last_date; i++ ){
         const paintTodayDate = new Date(year, month, date).getDate();
@@ -124,15 +132,12 @@ function init(){
     yearNMonth();
     beforeBtn.addEventListener("click", beforeMonth);
     afterBtn.addEventListener("click", afterMonth);
-}
-
-window.onload = function(){
     paintToday();
 }
 
 
-init();
 
+init();
 
 
 

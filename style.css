@@ -21,7 +21,7 @@ body{
     
 }
 
-.head button{
+.head input[type='button']{
     display: flex;
     all: unset;
     position: relative;
@@ -32,7 +32,7 @@ body{
     cursor: pointer;
 }
 
-.head button:active{
+.head input[type='button']:active{
     transform: scale(0.99);
 }
 
@@ -88,6 +88,8 @@ body{
     margin-bottom: 20px;
     color: black;
     font-size: 15px;
+    border: 1px dashed rgba(0, 0, 0, 0.70);
+    padding: 15px 20px;
 }
 
 #sunday{
